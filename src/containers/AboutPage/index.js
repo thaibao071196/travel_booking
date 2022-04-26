@@ -9,7 +9,7 @@ import { makeSelectStatusReducer, makeSelectStatusSaga } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-import { testReducerAction, testSagaAction } from './actions';
+import { testActions } from './actions';
 
 const key = 'aboutPage';
 function AboutPage({ statusReducer, statusSaga, dispatch }) {
@@ -17,11 +17,11 @@ function AboutPage({ statusReducer, statusSaga, dispatch }) {
   useInjectSaga({ key, saga });
 
   const onTestReducerAction = () => {
-    dispatch(testReducerAction({ status: 'test reducer success' }));
+    dispatch(testActions.successReducer({ status: 'test reducer success' }));
   };
 
   const onTestSagaAction = () => {
-    dispatch(testSagaAction({ status: 'test saga success' }));
+    dispatch(testActions.triggerToSaga({ status: 'test saga success' }));
   };
 
   return (

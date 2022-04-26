@@ -1,17 +1,15 @@
 import { take, call, put, select, takeLatest } from 'redux-saga/effects';
-import { SAGA_DEFAULT } from '../constants';
+import { testActions } from '../actions';
 
-import { testSaga } from '../actions';
-
-function* onActiveTestSaga(payload) {
-  const { status } = payload.payload;
+function* onActiveTestSaga({ payload }) {
+  const { status } = payload;
   try {
-    yield put(testSaga(status));
+    yield put(testActions.successSaga({ status }));
   } catch {
-    // erorr
+    // error
   }
 }
 
 export default function* appSaga() {
-  yield takeLatest(SAGA_DEFAULT, onActiveTestSaga);
+  yield takeLatest(testActions.TRIGGER_TO_SAGA, onActiveTestSaga);
 }

@@ -7323,7 +7323,7 @@ redux-injectors@^1.3.0:
 
 redux-saga-routines@^3.2.3:
   version "3.2.3"
-  resolved "https://registry.npmjs.org/redux-saga-routines/-/redux-saga-routines-3.2.3.tgz"
+  resolved "https://registry.yarnpkg.com/redux-saga-routines/-/redux-saga-routines-3.2.3.tgz#f1d6934e76ea95e0ad365680dc1672bd2635c07b"
   integrity sha512-mUaVAk8ZMXIYv28kUgtAg9p9e6A1We+GLjSnSaj+fmAzwn8+NPlxVNqQ85R7BEzc/F6d5nQDcoh72yCaxcLpZA==
   dependencies:
     redux-actions "^2.6.5"

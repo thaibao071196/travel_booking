@@ -1,16 +1,10 @@
-import { DEFAULT, SAGA_DEFAULT, SAGA_TYPE } from './constants';
+import { createRoutineCreator } from 'redux-saga-routines';
+import { DEFAULT_STAGES } from '../../utils/routines';
+import { DEFAULT } from './constants';
 
-export const testReducerAction = (payload) => ({
-  type: DEFAULT,
-  payload,
-});
+const testActionRoutines = createRoutineCreator([
+  ...DEFAULT_STAGES,
+  ...['TRIGGER_TO_SAGA', 'SUCCESS_REDUCER', 'SUCCESS_SAGA'],
+]);
 
-export const testSagaAction = (payload) => ({
-  type: SAGA_DEFAULT,
-  payload,
-});
-
-export const testSaga = (payload) => ({
-  type: SAGA_TYPE,
-  payload,
-});
+export const testActions = testActionRoutines(DEFAULT);
