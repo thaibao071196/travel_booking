@@ -48,5 +48,6 @@ module.exports = {
     'react/no-array-index-key': 0,
     'no-constant-condition': 0,
     'default-param-last': 0,
+    'no-nested-ternary': 0,
   },
 };

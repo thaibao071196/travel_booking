@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { onCallTestAction } from './actions';
 
 function HomePage() {
   // useInjectSaga({ key: 'homePage', reducer });
-  return <div>home page</div>;
+
+  return <div className="text-primary">home page</div>;
 }
 
 export default HomePage;
