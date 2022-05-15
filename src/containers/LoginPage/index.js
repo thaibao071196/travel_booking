@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { yupResolver } from '@hookform/resolvers/yup';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -33,6 +31,9 @@ const schema = yup.object().shape({
 });
 
 function LoginPage({ dispatch }) {
+  useInjectReducer({ key, reducer });
+  useInjectSaga({ key, saga });
+
   const [passwordShow, setPassWordShow] = useState(false);
 
   const {
@@ -44,10 +45,6 @@ function LoginPage({ dispatch }) {
     resolver: yupResolver(schema),
     mode: 'onChange',
   });
-
-  useInjectReducer({ key, reducer });
-  useInjectSaga({ key, saga });
-  // const { t } = useTranslation();
 
   function handleOpenRegister() {
     // setOpenForm(true);
@@ -78,10 +75,11 @@ function LoginPage({ dispatch }) {
           </div>
           <div className="relative my-10 mx-12">
             <div className="pl-3 pb-5">
-              <label>* Email:</label>
+              <div>* Email:</div>
             </div>
             <div className="shadow-xl w-full rounded-lg h-14 border border-blue-gray-200 relative overflow-hidden">
               <input
+                id="email"
                 className="bg-white outline-none border-none w-full h-full pl-5"
                 type="email"
                 name="email"
@@ -95,7 +93,7 @@ function LoginPage({ dispatch }) {
             </span>
 
             <div className="pt-5 pl-3 pb-5">
-              <label>* Password:</label>
+              <div>* Password:</div>
             </div>
             <div className="shadow-xl w-full rounded-lg h-14 border border-blue-gray-200 relative overflow-hidden">
               {!passwordShow ? (
@@ -127,7 +125,11 @@ function LoginPage({ dispatch }) {
             </span>
 
             <div className="text-right text-primary pt-5">
-              <a className="cursor-pointer" onClick={handleOpenRegister}>
+              <a
+                href="!#"
+                className="cursor-pointer"
+                onClick={handleOpenRegister}
+              >
                 Create an account ?
               </a>
             </div>
