@@ -11,6 +11,9 @@ import { useInjectReducer, useInjectSaga } from 'redux-injectors';
 import { createStructuredSelector } from 'reselect';
 import * as yup from 'yup';
 import '../../styles/style.css';
+
+import { loginActions } from './actions';
+
 import reducer from './reducer';
 import saga from './saga';
 
@@ -51,7 +54,7 @@ function LoginPage({ dispatch }) {
   }
 
   function handleLogin(value) {
-    console.log(value);
+    dispatch(loginActions.trigger({ value }));
     reset();
   }
 

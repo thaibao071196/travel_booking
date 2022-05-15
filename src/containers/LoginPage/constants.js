@@ -4,4 +4,4 @@
  *
  */
 
-export const DEFAULT_ACTION = 'app/Component/DEFAULT_ACTION';
+export const LOGIN = 'app/container/lOGIN';

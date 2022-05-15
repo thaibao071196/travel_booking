@@ -4,7 +4,7 @@
  *
  */
 import produce from 'immer';
-import { DEFAULT_ACTION } from '../constants';
+import { loginActions } from '../actions';
 
 export const initialState = {};
 
@@ -12,7 +12,9 @@ export const initialState = {};
 const componentReducer = (state = initialState, action) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
-      case DEFAULT_ACTION:
+      case loginActions.SUCCESS:
+        console.log('success validate');
+        console.log(action.payload);
         break;
     }
   });

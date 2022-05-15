@@ -1,10 +1,7 @@
-/*
- *
- * Component actions
- *
- */
+import { createRoutineCreator } from 'redux-saga-routines';
+import { DEFAULT_STAGES } from '../../utils/routines';
+import { LOGIN } from './constants';
 
-import { createRoutine, DEFAULT_STAGES } from 'redux-saga-routines';
-import { DEFAULT_ACTION } from './constants';
+const loginActionRoutines = createRoutineCreator([...DEFAULT_STAGES]);
 
-export const defaultActions = createRoutine(DEFAULT_ACTION);
+export const loginActions = loginActionRoutines(LOGIN);

@@ -17,6 +17,7 @@ export default [
   {
     path: r.ADMIN,
     element: AdminPage,
+    isPrivate: true,
   },
   {
     path: r.LOGIN,

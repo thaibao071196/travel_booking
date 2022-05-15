@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { getToken } from 'utils';
+import { getToken } from '../utils';
 
 import { APP_URL_API } from '../config';
 
