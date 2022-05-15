@@ -1,11 +1,30 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { useInjectReducer, useInjectSaga } from 'redux-injectors';
 
-function AdminPage(props) {
-  useEffect(() => {});
-  return <div>admin page</div>;
+import reducer from './reducer';
+import saga from './saga';
+
+const key = 'adminPage';
+
+function AdminPage() {
+  useInjectReducer({ key, reducer });
+  useInjectSaga({ key, saga });
+  // const { t } = useTranslation();
+
+  return (
+    <div>
+      <p>abc</p>
+    </div>
+  );
 }
 
-AdminPage.propTypes = {};
+AdminPage.propTypes = {
+  // dispatch: PropTypes.func.isRequired,
+};
 
-export default AdminPage;
+const mapStateToProps = createStructuredSelector({});
+
+export default connect(mapStateToProps)(AdminPage);
