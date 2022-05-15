@@ -5,7 +5,7 @@ module.exports = {
       colors: {
         // ...theme('colors'),
         transparent: 'transparent',
-        primary: '#287ab9',
+        primary: '#5566ff',
         blue: 'rgba(29, 78, 216)',
         error: 'rgba(239, 68, 68)',
         royal: '#957e56',

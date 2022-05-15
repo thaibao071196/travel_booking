@@ -65,19 +65,19 @@ function LoginPage({ dispatch }) {
 
   return (
     <div className="login-page">
-      <div className="absolute mx-auto items-center justify-center h-4/6 w-4/12 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute mx-auto items-center justify-center w-96 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <form
-          className="form-signIn w-full h-full bg-white bg-opacity-80"
+          className="form-signIn w-full h-full bg-white bg-opacity-80 p-4"
           onSubmit={handleSubmit(handleLogin)}
         >
-          <div className="font-bold text-center flex justify-center text-2xl pt-3">
+          <div className="font-bold text-center flex justify-center text-2xl">
             SIGN IN
           </div>
-          <div className="relative my-10 mx-12">
-            <div className="pl-3 pb-5">
+          <div className="relative">
+            <div className="pl-3 pb-2">
               <div>* Email:</div>
             </div>
-            <div className="shadow-xl w-full rounded-lg h-14 border border-blue-gray-200 relative overflow-hidden">
+            <div className="shadow-xl w-full rounded-lg h-12 border border-blue-gray-200 relative overflow-hidden">
               <input
                 id="email"
                 className="bg-white outline-none border-none w-full h-full pl-5"
@@ -92,10 +92,10 @@ function LoginPage({ dispatch }) {
               {errors.email && errors.email.message}
             </span>
 
-            <div className="pt-5 pl-3 pb-5">
+            <div className="pt-5 pl-3 pb-2">
               <div>* Password:</div>
             </div>
-            <div className="shadow-xl w-full rounded-lg h-14 border border-blue-gray-200 relative overflow-hidden">
+            <div className="shadow-xl w-full rounded-lg h-12 border border-blue-gray-200 relative overflow-hidden">
               {!passwordShow ? (
                 <div
                   onClick={handlePasswordInvisible}
@@ -137,7 +137,7 @@ function LoginPage({ dispatch }) {
             <div className="text-right">
               <button
                 type="submit"
-                className="text-white bg-red-500/50 shadow-xl w-full rounded-lg w-40 border-blue-gray-200 border mt-7 h-14 overflow-hidden"
+                className="text-white bg-primary rounded-lg w-28 mt-7 h-10 overflow-hidden hover:bg-opacity-90"
               >
                 Sign in
               </button>
