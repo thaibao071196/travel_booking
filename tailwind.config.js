@@ -67,6 +67,11 @@ module.exports = {
         full: '100%',
       },
 
+      maxWidth: {
+        '1/2': '50%',
+        '11/12': '91%',
+      },
+
       backgroundPosition: {
         'x-3/5': '60% 0',
       },

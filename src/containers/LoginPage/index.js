@@ -64,8 +64,8 @@ function LoginPage({ dispatch }) {
   }
 
   return (
-    <div className="login-page">
-      <div className="absolute mx-auto items-center justify-center w-96 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <div className="login-page <lg:px-2">
+      <div className="absolute mx-auto items-center justify-center w-96 max-w-11/12 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <form
           className="form-signIn w-full h-full bg-white bg-opacity-80 p-4"
           onSubmit={handleSubmit(handleLogin)}
