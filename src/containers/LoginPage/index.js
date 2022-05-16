@@ -9,6 +9,7 @@ import { useInjectReducer, useInjectSaga } from 'redux-injectors';
 import { createStructuredSelector } from 'reselect';
 import * as yup from 'yup';
 import '../../styles/style.css';
+import RegisterPage from '../RegisterPage';
 
 import { loginActions } from './actions';
 
@@ -35,6 +36,7 @@ function LoginPage({ dispatch }) {
   useInjectSaga({ key, saga });
 
   const [passwordShow, setPassWordShow] = useState(false);
+  const [openForm, setOpenForm] = useState(false);
 
   const {
     register,
@@ -47,7 +49,7 @@ function LoginPage({ dispatch }) {
   });
 
   function handleOpenRegister() {
-    // setOpenForm(true);
+    setOpenForm(true);
   }
 
   function handleLogin(value) {
@@ -64,88 +66,91 @@ function LoginPage({ dispatch }) {
   }
 
   return (
-    <div className="login-page <lg:px-2">
-      <div className="absolute mx-auto items-center justify-center w-96 max-w-11/12 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <form
-          className="form-signIn w-full h-full bg-white bg-opacity-80 p-4"
-          onSubmit={handleSubmit(handleLogin)}
-        >
-          <div className="font-bold text-center flex justify-center text-2xl">
-            SIGN IN
-          </div>
-          <div className="relative">
-            <div className="pl-3 pb-2">
-              <div>* Email:</div>
+    <>
+      {openForm && <RegisterPage setOpenForm={setOpenForm} />}
+      <div className="login-page <lg:px-2">
+        <div className="absolute mx-auto items-center justify-center w-110 min-h-110  max-w-11/12 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <form
+            className="form-signIn w-full h-full bg-white bg-opacity-80 p-4"
+            onSubmit={handleSubmit(handleLogin)}
+          >
+            <div className="font-bold text-center flex justify-center text-2xl">
+              SIGN IN
             </div>
-            <div className="shadow-xl w-full rounded-lg h-12 border border-blue-gray-200 relative overflow-hidden">
-              <input
-                id="email"
-                className="bg-white outline-none border-none w-full h-full pl-5"
-                type="email"
-                name="email"
-                placeholder="Enter email..."
-                {...register('email')}
-              />
-            </div>
+            <div className="relative">
+              <div className="pl-3 pb-2">
+                <div>* Email:</div>
+              </div>
+              <div className="shadow-xl w-full rounded-lg h-12 border border-blue-gray-200 relative overflow-hidden">
+                <input
+                  id="email"
+                  className="bg-white outline-none border-none w-full h-full pl-5"
+                  type="email"
+                  name="email"
+                  placeholder="Enter email..."
+                  {...register('email')}
+                />
+              </div>
 
-            <span className="text-red-500/100 ml-3">
-              {errors.email && errors.email.message}
-            </span>
+              <span className="text-red-500/100 ml-3">
+                {errors.email && errors.email.message}
+              </span>
 
-            <div className="pt-5 pl-3 pb-2">
-              <div>* Password:</div>
-            </div>
-            <div className="shadow-xl w-full rounded-lg h-12 border border-blue-gray-200 relative overflow-hidden">
-              {!passwordShow ? (
-                <div
-                  onClick={handlePasswordInvisible}
-                  className="absolute cursor-pointer right-0 h-full w-16 bg-blue-gray-200 flex items-center justify-center"
+              <div className="pt-5 pl-3 pb-2">
+                <div>* Password:</div>
+              </div>
+              <div className="shadow-xl w-full rounded-lg h-12 border border-blue-gray-200 relative overflow-hidden">
+                {!passwordShow ? (
+                  <div
+                    onClick={handlePasswordInvisible}
+                    className="absolute cursor-pointer right-0 h-full w-16 bg-blue-gray-200 flex items-center justify-center"
+                  >
+                    <VisibilityOffIcon className="text-gray-500 w-8 h-8" />
+                  </div>
+                ) : (
+                  <div
+                    onClick={handlePasswordShow}
+                    className="absolute cursor-pointer right-0 h-full w-16 bg-blue-gray-200 flex items-center justify-center"
+                  >
+                    <VisibilityIcon className="text-gray-500 w-8 h-8" />
+                  </div>
+                )}
+                <input
+                  className="bg-white outline-none border-none w-full h-full pl-5"
+                  name="password"
+                  type={passwordShow ? 'text' : 'password'}
+                  placeholder="Enter password..."
+                  {...register('password')}
+                />
+              </div>
+
+              <span className="text-red-500/100 ml-3">
+                {errors.password && errors.password.message}
+              </span>
+
+              <div className="text-right text-primary">
+                <button
+                  type="button"
+                  className="cursor-pointer"
+                  onClick={handleOpenRegister}
                 >
-                  <VisibilityOffIcon className="text-gray-500 w-8 h-8" />
-                </div>
-              ) : (
-                <div
-                  onClick={handlePasswordShow}
-                  className="absolute cursor-pointer right-0 h-full w-16 bg-blue-gray-200 flex items-center justify-center"
+                  Create an account ?
+                </button>
+              </div>
+
+              <div className="text-right">
+                <button
+                  type="submit"
+                  className="text-white bg-primary rounded-lg w-28 mt-7 h-10 overflow-hidden hover:bg-opacity-90"
                 >
-                  <VisibilityIcon className="text-gray-500 w-8 h-8" />
-                </div>
-              )}
-              <input
-                className="bg-white outline-none border-none w-full h-full pl-5"
-                name="password"
-                type={passwordShow ? 'text' : 'password'}
-                placeholder="Enter password..."
-                {...register('password')}
-              />
+                  Sign in
+                </button>
+              </div>
             </div>
-
-            <span className="text-red-500/100 ml-3">
-              {errors.password && errors.password.message}
-            </span>
-
-            <div className="text-right text-primary pt-5">
-              <a
-                href="!#"
-                className="cursor-pointer"
-                onClick={handleOpenRegister}
-              >
-                Create an account ?
-              </a>
-            </div>
-
-            <div className="text-right">
-              <button
-                type="submit"
-                className="text-white bg-primary rounded-lg w-28 mt-7 h-10 overflow-hidden hover:bg-opacity-90"
-              >
-                Sign in
-              </button>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
