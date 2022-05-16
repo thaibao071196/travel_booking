@@ -49,5 +49,6 @@ module.exports = {
     'no-constant-condition': 0,
     'default-param-last': 0,
     'no-nested-ternary': 0,
+    'react/jsx-no-useless-fragment': 0,
   },
 };

@@ -9,6 +9,7 @@ module.exports = {
         blue: 'rgba(29, 78, 216)',
         error: 'rgba(239, 68, 68)',
         royal: '#957e56',
+        success: '#36a420',
       },
       borderColor: (theme) => ({
         ...theme('colors'),
@@ -23,9 +24,10 @@ module.exports = {
       },
       width: {
         // eslint-disable-next-line
-        '120': '36rem',
+        120: '36rem',
+        160: '66rem',
         // eslint-disable-next-line
-        '110': '30rem',
+        110: '30rem',
         '1/2-screen': '50vw',
         '1/4-screen': '25vw',
       },
