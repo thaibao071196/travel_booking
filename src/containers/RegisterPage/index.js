@@ -19,7 +19,7 @@ function RegisterPage({ dispatch, setOpenForm }) {
   }
 
   return (
-    <div className="overlay fixed top-0 bottom-0 right-0 left-0 bg-opacity-40 bg-black z-10">
+    <div className="overlay fixed top-0 bottom-0 right-0 left-0 bg-opacity-60 bg-black z-10">
       <div className="mx-auto max-w-lg flex-col items-center justify-center pt-10 pb-10">
         <div className="relative my-10 z-10 bg-white rounded-md py-10 px-10 transition-transform">
           <div className="absolute right-10 top-5">
