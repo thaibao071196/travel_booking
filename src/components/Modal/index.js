@@ -30,7 +30,7 @@ function Modal(props) {
       <>
         <div
           className={classNames(
-            'fixed left-0 right-0 w-150 mx-auto my-auto h-auto max-h-95vh rounded z-1000 <sm:(w-11/12) flex flex-col shadow',
+            'fixed left-0 right-0 mx-auto my-auto h-auto max-h-95vh rounded z-1000 max-w-11/12 flex flex-col shadow',
             {
               'w-110': size === 'sm',
               'w-160': size === 'lg',
